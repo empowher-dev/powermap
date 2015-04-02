@@ -6,23 +6,32 @@
   <%# TODO %>
 <% end %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <h1>Welcome!</h1>
-
-      <h2>This is the homepage</h2>
-
-      <p>
-        Find me in <code>app/views/pages/home.html.erb</code>
-      </p>
-
-      <p>
-        Thanks to the <a href="https://github.com/thoughtbot/high_voltage">high_voltage</a>
-        gem, if you need more static pages (like <code>/contact</code> or <code>/about-us</code>),
-        just create a file in the <code>app/views/pages</code> folder, the route will be automatically
-        available without you adding any controller or touching the <code>config/routes.rb</code> file!
-      </p>
+<div class="navbar"><h1 class='head-title'>MAP HELPER</h1></div>
+<div class="wrapper">
+    <div class="content-form">
+        <form action="">
+            <label for="">
+                lieu
+            </label>
+            <input type="text"/>
+            <label for="">
+                auto complete
+            </label>
+            <input type="text"/>
+            <label for="">
+                description
+            </label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </form>
     </div>
-  </div>
+    <div class="content-result">
+        <p class="header-result">copie-colle ça dans ton script :</p>
+        <p class="result">{ <br>
+      url: place.icon,
+      size: new google.maps.Size(71, 71),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(17, 34),
+      scaledSize: new google.maps.Size(35, 35) <br>
+    }</p>
+    </div>
 </div>

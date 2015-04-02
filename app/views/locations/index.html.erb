@@ -1,0 +1,106 @@
+<!-- <h1>Locations#index</h1>
+<p>Find me in app/views/locations/index.html.erb</p>
+
+TO DO
+liste des lieux
+Form for create a new location
+edit path -->
+
+<!-- MAP BEGINS -->
+  <div class="map-wrapper">
+    <div id="map" style="width: 400px; height: 400px;">
+    </div>
+  </div>
+<!-- MAP ENDS -->
+
+<!-- LEFT CONTENT BEGINS -->
+
+
+<!-- LEFT CONTENT ENDS -->
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+    var mapStyle = [
+    {
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#2f343b"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#703030"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#2f343b"
+            },
+            {
+                "weight": 1
+            }
+        ]
+    }
+];
+
+      function createSidebarLi(json){
+        return ("<li><a>" + json.marker_title + "</a></li>");
+      };
+
+      function bindLiToMarker($li, marker){
+        $li.on('click', function(){
+          handler.getMap().setZoom(14);
+          marker.setMap(handler.getMap());
+          marker.panTo();
+          google.maps.event.trigger(marker.getServiceObject(), 'click');
+        })
+      };
+
+      function createSidebar(json_array){
+        _.each(json_array, function(json){
+          var $li = $( createSidebarLi(json) );
+          $li.appendTo('#sidebar_container');
+          bindLiToMarker($li, json.marker);
+        });
+      };
+
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: {id: 'map'}, provider: { styles: mapStyle }}, function(){
+        var json_array = <%= raw @markers.to_json %>;
+        var markers = handler.addMarkers(json_array);
+        _.each(json_array, function(json, index){
+          json.marker = markers[index];
+        });
+
+        createSidebar(json_array);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
+<% end %>

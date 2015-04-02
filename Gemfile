@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.0"
 
+gem 'activeadmin', github: 'activeadmin'
 gem "rails", "4.2.0"
 gem "pg"
 gem "figaro"
@@ -12,16 +13,23 @@ gem "devise"
 gem "pundit"
 gem "paperclip"
 gem "aws-sdk", "< 2.0"
+#for the nested form
+gem "cocoon"
 
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
 gem "bootstrap-sass"
 gem "font-awesome-sass"
+gem "best_in_place"
 
 gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
+#for the map
+gem "geocoder"
+gem "gmaps4rails"
+gem "underscore-rails"
 
 group :development, :test do
   gem "spring"

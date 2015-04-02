@@ -1,6 +1,7 @@
 class Location < ActiveRecord::Base
-  geocoded_by :city
-  after_validation :geocode, if: :city_changed?
+  geocoded_by :address
 
-  validates :city, presence: true
+  after_validation :geocode, if: :address_changed?
+
+  validates :address, presence: true
 end

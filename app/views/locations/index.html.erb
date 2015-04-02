@@ -7,8 +7,8 @@ Form for create a new location
 edit path -->
 
 <!-- MAP BEGINS -->
-  <div class="map-wrapper">
-    <div id="map" style="width: 400px; height: 400px;">
+  <div style="position: absolute; top: 0; left: 0; right:0; bottom :0">
+    <div id="map" style="width: 100%; height: 100%;">
     </div>
   </div>
 <!-- MAP ENDS -->
@@ -36,7 +36,7 @@ edit path -->
                 "visibility": "on"
             },
             {
-                "color": "#2f343b"
+                "color": "#f88b34"
             }
         ]
     },
@@ -47,7 +47,7 @@ edit path -->
                 "visibility": "on"
             },
             {
-                "color": "#703030"
+                "color": "#71092f"
             }
         ]
     },
@@ -59,7 +59,7 @@ edit path -->
                 "visibility": "on"
             },
             {
-                "color": "#2f343b"
+                "color": "#f88b34"
             },
             {
                 "weight": 1
@@ -90,7 +90,7 @@ edit path -->
       };
 
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: {id: 'map'}, provider: { styles: mapStyle }}, function(){
+      handler.buildMap({ internal: {id: 'map'}, provider: {  center: new google.maps.LatLng(-33, -33),  zoom: 4, disableDefaultUI: true, styles: mapStyle }}, function(){
         var json_array = <%= raw @markers.to_json %>;
         var markers = handler.addMarkers(json_array);
         _.each(json_array, function(json, index){

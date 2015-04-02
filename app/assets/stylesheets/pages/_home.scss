@@ -4,7 +4,8 @@
     top: 0;
     right: 0;
     height: 15%;
-    background-color: blue;
+    background-color: #f88b34;
+    color: #71092f;
 }
 .wrapper {
     position: absolute;
@@ -12,6 +13,8 @@
     left:0;
     right: 0;
     bottom: 0;
+    color: #71092f;
+    background-color: #FFFFFF;
 }
 
 .content-form {
@@ -21,7 +24,8 @@
     bottom: 0;
     right: 49%;
     overflow: scroll;
-    border-right: 5px solid blue;
+    border-right: 5px solid #f88b34;
+    color: #71092f;
 }
 
 .content-result {
@@ -30,6 +34,7 @@
     top: 0;
     bottom: 0;
     right: 0%;
+    color: #71092f;
 }
 
 p.result {
@@ -40,9 +45,11 @@ p.result {
     -ms-transform: translate(-50%, -50%); /* IE 9 */
     -webkit-transform: translate(-50%, -50%); /* Safari */
     transform: translate(-50%, -50%);
-    font-family: futura;
+    font-family: Signika, sans-serif;
     padding: 20px;
-    border: 5px dashed blue;
+    border: 5px dashed #f88b34;
+    color: #71092f;
+    border-radius: 2.5px;
 }
 
 p.header-result {
@@ -52,8 +59,10 @@ p.header-result {
     -ms-transform: translate(-50%, -10%); /* IE 9 */
     -webkit-transform: translate(-50%, -10%); /* Safari */
     transform: translate(-50%, -10%);
-    font-family: futura;
+    font-family: Signika, sans-serif;
     padding: 10px;
+    color: #71092f;
+    font-size: 22px;
 }
 
 form {
@@ -61,6 +70,7 @@ form {
     margin: 15%;
     top:0;
     bottom:0;
+    color: #71092f;
 }
 
 label, input, textarea {
@@ -70,6 +80,8 @@ label, input, textarea {
     margin-left: auto;
     left: 0;
     width: 100%;
+    color: #71092f;
+    border-radius: 2.5px;
 }
 
 textarea {
@@ -77,9 +89,10 @@ textarea {
 }
 
 h1.head-title {
+  color: #71092f;
   position: relative;
   color: white;
-  font-family: futura;
+  font-family: Signika, sans-serif;
   margin-left: 1%;
   margin-top: 1%;
 }

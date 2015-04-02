@@ -16,6 +16,12 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    # authorize @post
+    if @location.save
+      redirect_to locations_path
+    else
+     # render :new
+    end
   end
 
   def edit
@@ -33,6 +39,6 @@ class LocationsController < ApplicationController
   end
 
   def location_params
-    params.require(:location).permit(:name, :city, :description)
+    params.require(:location).permit(:name, :address, :description)
   end
 end

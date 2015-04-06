@@ -8,30 +8,47 @@
 
 <div class="navbar"><h1 class='head-title'>MAP HELPER</h1></div>
 <div class="wrapper">
+
     <div class="content-form">
-        <form action="">
-            <label for="">
-                lieu
-            </label>
-            <input type="text"/>
-            <label for="">
-                auto complete
-            </label>
-            <input type="text"/>
-            <label for="">
-                description
-            </label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-        </form>
+         <%= form_for Location.new(), url: locations_path, method: :post do |f| %>
+    <%= f.label "Titre de la mission" %>
+    <%= f.text_field :name %>
+    <%= f.label "Ville" %>
+    <%= f.text_field :address, id: 'user_input_autocomplete_address' %>
+    <input id="street_number" name="street_number" type="hidden" disabled>
+    <input id="route" name="route" type="hidden" disabled>
+    <input id="locality" name="locality" type="hidden"disabled>
+    <input id="country" name="country" type="hidden" disabled>
+    <%= f.label "Description" %>
+    <%= f.text_area :description, class: "text optional form-control", as: :text %>
+    <%= f.submit "Créer", class:'btn-form' %>
+  <% end %>
     </div>
+
     <div class="content-result">
         <p class="header-result">copie-colle ça dans ton script :</p>
-        <p class="result">{ <br>
-      url: place.icon,
-      size: new google.maps.Size(71, 71),
-      origin: new google.maps.Point(0, 0),
-      anchor: new google.maps.Point(17, 34),
-      scaledSize: new google.maps.Size(35, 35) <br>
-    }</p>
+        <p class="result">
+          var marker = new google.maps.Marker({<br>
+          position: new google.maps.LatLng(-coordonées qui sortent de ton autocomplete-),
+          map: map,
+          title: 'Hello World!'<br>
+          });
+          var infowindow = new google.maps.InfoWindow({<br>
+          content: '<#h1>'+'titre'+'<#/h1>'+'<#div>'+'description'+'<#/div>'
+          });<br>
+          google.maps.event.addListener(marker, 'click', function() {<br>
+          infowindow.open(map, marker);<br>
+          });
+        </p>
     </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      google.maps.event.addDomListener(window, 'load', function() {
+        initializeAutocomplete('user_input_autocomplete_address');
+      });
+    });
+  <% end %>
+<% end %>

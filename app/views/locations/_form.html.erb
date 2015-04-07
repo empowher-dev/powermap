@@ -1,18 +1,20 @@
 <h2 style="text-align: center">Ajouter un lieu</h2>
-  <%= form_for Location.new(), url: locations_path, method: :post do |f| %>
-    <%= f.label "Titre de la mission" %>
-    <%= f.text_field :name %>
+
+<div class="form-card">
+  <%= simple_form_for Location.new(), url: locations_path, method: :post do |f| %>
+    <%= f.input :name, label: "Titre de la mission" %>
     <%= f.label "Ville" %>
-    <%= f.text_field :address, id: 'user_input_autocomplete_address' %>
+    <%= f.text_field :address, id: 'user_input_autocomplete_address', class: "form-control" %>
     <input id="street_number" name="street_number" type="hidden" disabled>
     <input id="route" name="route" type="hidden" disabled>
     <input id="locality" name="locality" type="hidden"disabled>
     <input id="country" name="country" type="hidden" disabled>
-    <%= f.label "Description" %>
-    <%= f.text_area :description, class: "text optional form-control", as: :text %>
-    <%= f.submit "Créer" %>
+    <%= f.input :description, class: "text optional form-control", as: :text %>
+    <div class="form-footer">
+      <%= f.submit "Créer", class: 'btn btn-form' %>
+    </div>
   <% end %>
-
+</div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>

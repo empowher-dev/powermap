@@ -1,2 +1,7 @@
-<h1>Locations#edit</h1>
-<p>Find me in app/views/locations/edit.html.erb</p>
+<h1>Editer une mission</h1>
+
+<%= simple_form_for @location do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.submit 'Éditer', class:"btn btn-form" %>
+<% end %>

@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :find_location
+  before_action :find_location, only: [:edit, :update, :destroy]
 
   def index
     @locations = Location.all
@@ -18,9 +18,9 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     # authorize @post
     if @location.save
-      redirect_to locations_path
+      redirect_to page_path('home')
     else
-     # render :new
+      render :index
     end
   end
 
@@ -28,6 +28,11 @@ class LocationsController < ApplicationController
   end
 
   def update
+    if @location.update(location_params)
+      redirect_to page_path('home')
+    else
+      render :index
+    end
   end
 
   def destroy
@@ -36,6 +41,7 @@ class LocationsController < ApplicationController
   private
 
   def find_location
+    @location = Location.find(params[:id])
   end
 
   def location_params

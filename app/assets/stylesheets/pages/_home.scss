@@ -28,19 +28,20 @@
     left: 0;
     top: 0;
     bottom: 0;
-    right: 49%;
+    right: 50%;
     overflow: scroll;
-    border-right: 5px solid #f88b34;
+    border: 3.5px solid #f88b34;
     color: #71092f;
 }
 
 .content-result {
     position: absolute;
-    left: 49%;
+    left: 50%;
     top: 0;
     bottom: 0;
     right: 0%;
     color: #71092f;
+    border: 3.5px solid #f88b34;
 }
 
 p.result {

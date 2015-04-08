@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('.help').hide();
-  $('.head-title').click(function(){
+  $('.help-btn').click(function(){
     $('.help').show('slide', {direction: "up"}, 500, function(){
     });
   });

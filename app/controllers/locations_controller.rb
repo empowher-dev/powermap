@@ -11,6 +11,11 @@ class LocationsController < ApplicationController
       marker.title location.name
       #to do, complete the json to include html style
       marker.infowindow location.description
+      marker.picture({
+        "url": "http://img11.hostingpics.net/pics/222730faviconempower.png",
+        "width": 25,
+        "height": 25
+        })
     end
   end
 

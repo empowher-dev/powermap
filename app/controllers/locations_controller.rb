@@ -23,7 +23,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     # authorize @post
     if @location.save
-      redirect_to page_path('home')
+      redirect_to root_path
     else
       render :index
     end
@@ -34,7 +34,6 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      redirect_to page_path('home')
     else
       render :index
     end

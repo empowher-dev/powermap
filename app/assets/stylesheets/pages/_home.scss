@@ -1,10 +1,12 @@
-.copy-button {
-  position: relative;
-  float: right;
-  height: 5%;
-  width: 5%;
-  margin: 2%;
-  background-color: blue;
+form {
+  letter-spacing: 2.5px;
+}
+
+pre {
+  background-color: transparent;
+  border: none;
+  font-family: Futura;
+  font-weight: 300;
 }
 
 .edit {
@@ -34,7 +36,6 @@
   height: 80%;
   top: 10%;
   bottom: 10%;
-  right: 2.5%;
   width: 7.5%;
   color: white;
   font-weight: bold;
@@ -43,23 +44,10 @@
   border-radius: 2px;
   display: table;
   text-align: center;
-}
-
-.help-btn:hover {
-  position: absolute;
-  right: 2.5%;
-  height: 80%;
-  top: 10%;
-  bottom: 10%;
-  right: 2.5%;
-  width: 7.5%;
-  color: #8C455F;
-  font-weight: bold;
-  background-color: white;
-  border: 1px solid white;
-  border-radius: 2px;
-  display: table;
-  text-align: center;
+  &:hover {
+    color: #8C455F;
+    background-color: white;
+  }
 }
 
 .help-btn > h2 {
@@ -72,14 +60,13 @@
   width: 33%;
   padding: 1%;
   overflow: hidden;
-}
-
-.step-img {
-  position: relative;
-  height: 80%;
-  margin-left: 15%;
-  margin-right: 15%;
-  diplay: block;
+  &-img {
+    position: relative;
+    height: 80%;
+    margin-left: 15%;
+    margin-right: 15%;
+    diplay: block;
+  }
 }
 
 .wrapper-helper {
@@ -145,29 +132,21 @@
     bottom: 0;
     right: 45%;
     overflow: scroll;
-    // border: 3.5px solid #8C455F;
     color: #71092f;
 }
 
 #map {
   position: relative;
-  // top: 0;
   height: 40%;
-  // left: 0;
-  // right: 0;
   margin-top: 2.5%;
   margin-left: 7.5%;
   margin-right: 7.5%;
-
 }
 
 .loc-form {
   position: relative;
-  // bottom: 0;
   height: 60%;
   width: 100%;
-  // left: 0;
-  // right: 0;
 }
 
 .content-result {
@@ -177,7 +156,6 @@
     bottom: 0;
     right: 0%;
     color: #8C455F;
-    // border: 3.5px solid #8C455F;
     overflow: hidden;
 }
 
@@ -271,6 +249,8 @@ h1.head-title {
   color: white;
   margin-left: 1%;
   margin-top: 1%;
+  font-family: Futura;
+  font-weight: 100;
 }
 
 .active {

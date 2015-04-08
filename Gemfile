@@ -2,7 +2,6 @@ source "https://rubygems.org"
 
 ruby "2.2.0"
 
-gem 'zeroclipboard-rails'
 gem 'activeadmin', github: 'activeadmin'
 gem "rails", "4.2.0"
 gem "pg"

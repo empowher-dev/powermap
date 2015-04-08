@@ -5,7 +5,6 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require zeroclipboard
 
 //= require_tree ./app
 

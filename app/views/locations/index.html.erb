@@ -39,7 +39,6 @@
       <%= render 'locations/form' %>
     </div>
     <div class="edit">
-
     <div class="edit-list">
     <h2>Editer une mission</h2>
     <ul class="list-unstyled" style="margin: 2.5%">
@@ -130,7 +129,7 @@
               // add click event
               google.maps.event.addListener(marker, 'click', function() {
                 infowindow = new google.maps.InfoWindow({
-                  content: "<h1 style='font-size: 20px; color: #385273'>" + locations[i].marker_title + "</h1>"+"<p style='font-site: 12px; color: #385273'>" + locations[i].infowindow + "</p>",
+                  content: locations[i].infowindow,
                 });
                 infowindow.open(map, marker);
               });

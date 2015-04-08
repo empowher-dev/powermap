@@ -38,6 +38,20 @@
     <div class="loc-form">
       <%= render 'locations/form' %>
     </div>
+    <div class="edit">
+      <div class="edit-list">
+      <h2>Editer une mission</h2>
+      <ul class="list-unstyled">
+      <% @locations.each do |location| %>
+        <li>
+          <%= link_to edit_location_path(location) do %>
+            <%= location.name %>
+          <% end %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+    </div>
   </div>
 
   <div class="content-result">
@@ -230,22 +244,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 
 
-<!--<div class="container">
-  <div class="row">
-    <%= render 'locations/form' %>
-  </div>
-  <div class="row">
-    <h2>Editer une mission</h2>
-    <ul class="list-unstyled">
-    <% @locations.each do |location| %>
-      <li>
-        <%= link_to edit_location_path(location) do %>
-          <%= location.name %>
-        <% end %>
-      </li>
-    <% end %>
-    </ul>
-  </div>
-</div>-->
 
 

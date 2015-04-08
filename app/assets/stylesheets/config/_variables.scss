@@ -2,20 +2,54 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700|Raleway:300,400");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Montserrat", "sans-serif";
-$navbar-font: 'Raleway', "sans-serif";
+// @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700|Raleway:300,400");
+// $base-font: "Open Sans", "Helvetica", "sans-serif";
+// $header-font: "Montserrat", "sans-serif";
+// $navbar-font: 'Raleway', "sans-serif";
 
 // Local fonts (uncomment following lines)
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+
+@font-face {
+  font-family: "Futura";
+  font-weight: book;
+  src: font-url('futurastd-book.eot');
+  src: font-url('futurastd-book.eot?#iefix') format('embedded-opentype'),
+       font-url('futurastd-book.woff') format('woff'),
+       font-url('futurastd-book.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: "Futura";
+  font-weight: bold;
+  src: font-url('futurastd-bold.eot');
+  src: font-url('futurastd-bold.eot?#iefix') format('embedded-opentype'),
+       font-url('futurastd-bold.woff') format('woff'),
+       font-url('futurastd-bold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: "Futura";
+  font-weight: light;
+  src: font-url('futurastd-light.eot');
+  src: font-url('futurastd-light.eot?#iefix') format('embedded-opentype'),
+       font-url('futurastd-light.woff') format('woff'),
+       font-url('futurastd-light.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: "Futura";
+  font-weight: 900;
+  src: font-url('futurastd-light.eot');
+  src: font-url('futurastd-light.eot?#iefix') format('embedded-opentype'),
+       font-url('futurastd-light.woff') format('woff'),
+       font-url('futurastd-light.ttf') format('truetype')
+}
+
+
+
+$base-font: "Futura", "Open Sans", "Helvetica", "sans-serif";
+$header-font: "Futura";
+$navbar-font: "Futura";
 
 // Font-size and line-height
 $base-size: 16px;

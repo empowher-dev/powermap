@@ -1,7 +1,13 @@
-<h1>Editer une mission</h1>
-
-<%= simple_form_for @location do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.submit 'Éditer', class:"btn btn-form" %>
-<% end %>
+<div class="edit-form-card">
+  <div class="go-back">
+    <%= link_to root_path do %>
+      <i class="fa fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <h2 class="text-center">Editer une mission</h2>
+  <%= simple_form_for @location do |f| %>
+    <%= f.input :name, label: 'Titre' %>
+    <%= f.input :description, as: :text, input_html: { rows: 7 , style: 'width: 100%'}, placeholder: "#{@location.description}" %>
+    <%= f.submit 'Éditer', class:"btn btn-form" %>
+  <% end %>
+</div>

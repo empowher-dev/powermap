@@ -1,5 +1,5 @@
 <%= content_for(:title) do %>
-  Home
+  Empow'her Map
 <% end %>
 
 <%= content_for(:description) do %>
@@ -41,6 +41,8 @@
     <div class="edit">
       <div class="edit-list">
       <h2>Editer une mission</h2>
+      <div id="sidebar-container">
+      </div>
       <ul class="list-unstyled">
       <% @locations.each do |location| %>
         <li>
@@ -143,22 +145,6 @@
   </div>
 </div>
 
-<div class="box-edit">
-  <div class="row">
-    <h2>Editer une mission</h2>
-    <ul class="list-unstyled">
-    <% @locations.each do |location| %>
-      <li>
-        <%= link_to edit_location_path(location) do %>
-          <%= location.name %>
-        <% end %>
-      </li>
-    <% end %>
-    </ul>
-  </div>
-</div>
-
-
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -226,7 +212,7 @@
       function createSidebar(json_array){
         _.each(json_array, function(json){
           var $li = $( createSidebarLi(json) );
-          $li.appendTo('#sidebar_container');
+          $li.appendTo('#sidebar-container');
           bindLiToMarker($li, json.marker);
         });
       };
@@ -239,9 +225,9 @@
         _.each(json_array, function(json, index){
           json.marker = markers[index];
         });
-
-        createSidebar(json_array);
-        handler.bounds.extendWith(markers);
+<!--       TO DO: custom a nice sidebar with links
+ --><!--         createSidebar(json_array);
+ -->        handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
       });
     })

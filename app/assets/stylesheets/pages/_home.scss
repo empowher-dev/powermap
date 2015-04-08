@@ -76,9 +76,10 @@
 
 .step-img {
   position: relative;
-  max-height: 90%;
+  height: 80%;
   margin-left: 15%;
   margin-right: 15%;
+  diplay: block;
 }
 
 .wrapper-helper {
@@ -101,6 +102,7 @@
   height: 100%;
   z-index: 99;
   background-color: #8C455F;
+  overflow: scroll;
 }
 
 .back {
@@ -233,6 +235,7 @@ p.header-result {
 h3 {
   color: white;
   font-size: 22px;
+  margin-bottom: 22px;
 }
 
 h2 {

@@ -272,8 +272,6 @@ GEM
     unicode_utils (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
-    zeroclipboard-rails (0.1.0)
-      railties (>= 3.1)
 
 PLATFORMS
   ruby
@@ -313,4 +311,3 @@ DEPENDENCIES
   spring
   uglifier
   underscore-rails
-  zeroclipboard-rails

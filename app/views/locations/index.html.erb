@@ -39,25 +39,25 @@
       <%= render 'locations/form' %>
     </div>
     <div class="edit">
-      <div class="edit-list">
-      <h2>Editer une mission</h2>
-      <div id="sidebar-container">
-      </div>
-      <ul class="list-unstyled">
-      <% @locations.each do |location| %>
-        <li>
-          <%= link_to edit_location_path(location) do %>
-            <%= location.name %>
-          <% end %>
-        </li>
-      <% end %>
-      </ul>
-    </div>
+
+    <div class="edit-list">
+    <h2>Editer une mission</h2>
+    <ul class="list-unstyled" style="margin: 2.5%">
+    <% @locations.each do |location| %>
+      <li>
+        <%= link_to edit_location_path(location) do %>
+          <%= location.name %>
+        <% end %>
+      </li>
+    <% end %>
+    </ul>
     </div>
   </div>
+  </div>
+
 
   <div class="content-result">
-    <h2 style="text-align: center"></h2>
+    <div class="copy-button" data-clipboard-target="clipboard_text"></div>
     <div class="code">
       <xmp>
   <div style="padding: 20px">
@@ -80,14 +80,14 @@
             stylers: [{
                 visibility: "on"
             }, {
-                color: "#f88b34"
+                color: "#385273"
             }]
         }, {
             featureType: "landscape",
             stylers: [{
                 visibility: "on"
             }, {
-                color: "#71092f"
+                color: "#FAECC7"
             }]
         }, {
             featureType: "administrative",
@@ -95,7 +95,7 @@
             stylers: [{
                 visibility: "on"
             }, {
-                color: "#f88b34"
+                color: "#FAECC7"
             }, {
                 weight: 1
             }]
@@ -104,10 +104,10 @@
         var mapOptions = {
             disableDefaultUI: true,
             center: {
-                lat: -25.397,
-                lng: 131.644
+                lat: 0,
+                lng: 20
             },
-            zoom: 4
+            zoom: 3
 
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -122,16 +122,16 @@
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
                 map: map,
+                icon: "http://img11.hostingpics.net/pics/222730faviconempower.png"
             });
-
             (function(marker, i) {
-                // add click event
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow = new google.maps.InfoWindow({
-                        content: locations[i].infowindow,
-                    });
-                    infowindow.open(map, marker);
+              // add click event
+              google.maps.event.addListener(marker, 'click', function() {
+                infowindow = new google.maps.InfoWindow({
+                  content: "<h1 style='font-size: 20px; color: #385273'>" + locations[i].marker_title + "</h1>"+"<p style='font-site: 12px; color: #385273'>" + locations[i].infowindow + "</p>",
                 });
+                infowindow.open(map, marker);
+              });
             })(marker, i);
         };
       }

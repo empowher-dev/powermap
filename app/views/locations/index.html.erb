@@ -46,7 +46,10 @@
     <% @locations.each do |location| %>
       <li>
         <%= link_to edit_location_path(location) do %>
-          <%= location.name %>
+          <%= location.name %> -
+        <% end %>
+        <%= link_to location_path(location), method: :delete do %>
+          <i class="fa fa-trash-o"></i>
         <% end %>
       </li>
     <% end %>

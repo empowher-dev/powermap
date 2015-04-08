@@ -35,12 +35,18 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
+      redirect_to root_path
     else
       render :index
     end
   end
 
   def destroy
+    if @location.delete
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   private

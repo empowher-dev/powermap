@@ -13,6 +13,7 @@ pre {
   position: relative;
   width: 100%;
   height: 40%;
+  margin-top: 10%;
   h2 {
     text-align: center;
   }
@@ -259,4 +260,40 @@ h1.head-title {
 
 .inactive {
   display: none;
+}
+
+@media screen and (max-width: 640px) {
+  .content-form {
+    position: relative;
+    height: auto;
+    width:90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    float: left;
+  }
+
+  .content-result {
+    position: relative;
+    width:90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 50%;
+    float: left;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    right: auto;
+  }
+
+  .wrapper {
+    bottom: -100%;
+  }
+
+  .edit {
+    float: left;
+  }
+
+  .code {
+    margin: 7.5%;
+  }
 }

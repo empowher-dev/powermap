@@ -128,14 +128,11 @@
                 icon: "http://img11.hostingpics.net/pics/222730faviconempower.png"
             });
             (function(marker, i) {
-              google.maps.event.addListener(marker, 'mouseover', function() {
+              google.maps.event.addListener(marker, 'click', function() {
                 infowindow = new google.maps.InfoWindow({
                   content: locations[i].infowindow,
                 });
                 infowindow.open(map, marker);
-              });
-              google.maps.event.addListener(marker, 'mouseout', function() {
-                infowindow.close(map, marker);
               });
             })(marker, i);
         };

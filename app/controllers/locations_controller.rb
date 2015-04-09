@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
       marker.title location.name
       #to do, complete the json to include html style
 
-      marker.infowindow ("<div style='width: 300px; height: 200px;'><h1 style='font-size: 20px; color: #385273'>" + location.name + "</h1>" + "<pre style='font-size: 14px; color: #385273; white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; text-align: justify'>" + location.description + "</pre></div>")
+      marker.infowindow ("<div><h1 style='font-size: 20px; color: #385273'>" + location.name + "</h1>" + "<div style=' padding:5px; font-size: 14px; color: #385273; white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; text-align: justify'>" + location.description + "</div>" + "<a href='http://" + location.link + "' target='_blank'><em>" + "En savoir plus" + "</em></a></div>")
       marker.picture({
         "url": "http://img11.hostingpics.net/pics/222730faviconempower.png",
         "width": 25,

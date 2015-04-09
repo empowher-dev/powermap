@@ -7,6 +7,8 @@
   <h2 class="text-center">Editer une mission</h2>
   <%= simple_form_for @location do |f| %>
     <%= f.input :name, label: 'Titre' %>
+    <%= f.input :link, label: 'Modifier le lien' %>
+    <%= f.input :picture_url, label: "Modifier la photo (copier l'url de l'image)" %>
     <%= f.input :description, as: :text, input_html: { rows: 7 , style: 'width: 100%'}, placeholder: "#{@location.description}" %>
     <%= f.submit 'Éditer', class:"btn btn-form" %>
   <% end %>

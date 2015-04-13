@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
         "width": 25,
         "height": 25
         })
-      marker.json({ id: location.id })
+      marker.json({ id: location.id, address: location.address })
     end
   end
 

@@ -8,8 +8,24 @@
   <%= simple_form_for @location do |f| %>
     <%= f.input :name, label: 'Titre' %>
     <%= f.input :link, label: 'Modifier le lien' %>
+    <%= f.label "Modifier le lieu" %>
+    <%= f.text_field :address, id: 'user_input_autocomplete_address', class: "form-control" %>
+    <input id="street_number" name="street_number" type="hidden" disabled>
+    <input id="route" name="route" type="hidden" disabled>
+    <input id="locality" name="locality" type="hidden"disabled>
+    <input id="country" name="country" type="hidden" disabled>
     <%= f.input :picture_url, label: "Modifier la photo (copier l'url de l'image)" %>
     <%= f.input :description, as: :text, input_html: { rows: 7 , style: 'width: 100%'}, placeholder: "#{@location.description}" %>
     <%= f.submit 'Éditer', class:"btn btn-form" %>
   <% end %>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      google.maps.event.addDomListener(window, 'load', function() {
+        initializeAutocomplete('user_input_autocomplete_address');
+      });
+    });
+  <% end %>
+<% end %>

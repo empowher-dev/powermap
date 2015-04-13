@@ -127,10 +127,12 @@
                 map: map,
                 icon: "http://img11.hostingpics.net/pics/222730faviconempower.png"
             });
+
             (function(marker, i) {
               google.maps.event.addListener(marker, 'click', function() {
+                var infoContent = "<div><h1 style='font-size: 20px; color: #385273'>" + locations[i].name + "</h1><img src='" + locations[i].picture_url + "' style='max-width: 300px'/><div style=' padding:5px; font-size: 14px; color: #385273; white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; text-align: justify'>" + locations[i].description + "</div>" + "<a href='" + locations[i].link + "' target='_blank'><em>" + "En savoir plus" + "</em></a></div>";
                 infowindow = new google.maps.InfoWindow({
-                  content: locations[i].infowindow,
+                  content: infoContent,
                 });
                 infowindow.open(map, marker);
               });

@@ -3,7 +3,7 @@
 <div class="form-card">
   <%= simple_form_for Location.new(), url: locations_path, method: :post do |f| %>
     <%= f.input :name, label: "Titre de la mission" %>
-    <%= f.input :link, label: "Ajouter un lien" %>
+    <%= f.input :link, label: "Ajouter un lien", placeholder: "http://" %>
     <%= f.input :picture_url, label: "Ajouter une photo (copier l'url de l'image)" %>
     <%= f.label "Ville" %>
     <%= f.text_field :address, id: 'user_input_autocomplete_address', class: "form-control" %>

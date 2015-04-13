@@ -28,7 +28,8 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to root_path
     else
-      render :index
+      flash[:alert] = "Une erreur est survenue, votre lieu n'a pas été sauvegardé."
+      redirect_to root_path
     end
   end
 
@@ -39,7 +40,8 @@ class LocationsController < ApplicationController
     if @location.update(location_params)
       redirect_to root_path
     else
-      render :index
+      flash[:alert] = "Une erreur est survenue: votre lieu n'a pas été supprimé."
+      redirect_to rooth_path
     end
   end
 
@@ -47,7 +49,8 @@ class LocationsController < ApplicationController
     if @location.delete
       redirect_to root_path
     else
-      render :index
+      flash[:alert] = "Une erreur est survenue: votre lieu n'a pas été supprimé."
+      redirect_to rooth_path
     end
   end
 

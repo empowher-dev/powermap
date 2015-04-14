@@ -122,7 +122,6 @@
         }];
 
         var mapOptions = {
-            disableDefaultUI: true,
             center: {
                 lat: 0,
                 lng: 20
@@ -238,7 +237,7 @@
       };
 
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: {id: 'map'}, provider: {  center: new google.maps.LatLng(0, 20),  zoom: 2, disableDefaultUI: true, styles: mapStyle }}, function(){
+      handler.buildMap({ internal: {id: 'map'}, provider: {  center: new google.maps.LatLng(0, 20),  zoom: 2, styles: mapStyle }}, function(){
         var json_array = <%= raw @markers.to_json %>;
         var markers = handler.addMarkers(json_array);
         _.each(json_array, function(json, index){

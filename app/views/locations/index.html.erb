@@ -70,6 +70,22 @@
             margin: 0;
             padding: 0;
         }
+        .loc-title {
+          font-size: 20px;
+          color: #385273;
+        }
+        .loc-des {
+          padding:5px;
+          font-size: 14px;
+          color: #385273;
+          white-space: pre-wrap;
+          white-space: -moz-pre-wrap;
+          white-space: -pre-wrap;
+          white-space: -o-pre-wrap;
+          word-wrap: break-word;
+          text-align: justify;
+        }
+
     </style>
     <div id="map-canvas"></div>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
@@ -132,7 +148,7 @@
             (function(marker, i) {
               google.maps.event.addListener(marker, 'click', function() {
                 infowindow = new google.maps.InfoWindow({
-                  content: "<div><h1 style='font-size: 20px; color: #385273'>" + locations[i].name + "</h1><img src='" + locations[i].picture_url + "' style='max-width: 300px'/><div style=' padding:5px; font-size: 14px; color: #385273; white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; text-align: justify'>" + locations[i].description + "</div>" + "<a href='" + locations[i].link + "' target='_blank'><em>" + "En savoir plus" + "</em></a></div>",
+                  content: "<div><h1 class='loc-title'>" + locations[i].name + "</h1><img src='" + locations[i].picture_url + "' style='max-width: 300px'/><div class='loc-des'>" + locations[i].description + "</div>" + "<a href='" + locations[i].link + "' target='_blank'><em>" + "En savoir plus" + "</em></a></div>",
                 });
                 infowindow.open(map, marker);
               });

@@ -66,18 +66,30 @@
   <div>
     <style type="text/css">
         html, body, #map-canvas {
-            height: 100%;
-            margin: 0;
-            padding: 0;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        #infobox {
+          border:2px solid black;
+          margin-top: 8px;
+          background:#333;
+          color:#FFFFFF;
+          font-size:12px;
+          padding: .5em 1em;
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+          text-shadow:0 -1px #000000;
+          -webkit-box-shadow: 0 0 8px #000;
+          box-shadow: 0 0 8px #000;
         }
         .loc-title {
           font-size: 20px;
-          color: #385273;
         }
         .loc-des {
           padding:5px;
           font-size: 14px;
-          color: #385273;
           white-space: pre-wrap;
           white-space: -moz-pre-wrap;
           white-space: -pre-wrap;
@@ -85,10 +97,16 @@
           word-wrap: break-word;
           text-align: justify;
         }
-
+        .loc-img {
+          max-width: 250px;
+          position: relative;
+          margin: auto;
+          width: 70%;
+        }
     </style>
     <div id="map-canvas"></div>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
     <script type="text/javascript">
       function initialize() {
         var mapStyle = [{
@@ -120,7 +138,6 @@
                 weight: 1
             }]
         }];
-
         var mapOptions = {
             center: {
                 lat: 0,
@@ -138,20 +155,32 @@
         var locations = <%= raw @markers.to_json(except: :infowindow) %>
 
         for (i = 0; i < locations.length; i++) {
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-                map: map,
-                icon: "http://img11.hostingpics.net/pics/222730faviconempower.png"
-            });
+          var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+              map: map,
+              icon: "http://img11.hostingpics.net/pics/222730faviconempower.png"
+          });
 
-            (function(marker, i) {
-              google.maps.event.addListener(marker, 'click', function() {
-                infowindow = new google.maps.InfoWindow({
-                  content: "<div><h1 class='loc-title'>" + locations[i].name + "</h1><img src='" + locations[i].picture_url + "' style='max-width: 300px'/><div class='loc-des'>" + locations[i].description + "</div>" + "<a href='" + locations[i].link + "' target='_blank'><em>" + "En savoir plus" + "</em></a></div>",
-                });
-                infowindow.open(map, marker);
+          (function(marker, i) {
+            google.maps.event.addListener(marker, 'click', function() {
+              infobox = new InfoBox({
+                content: ("<div id='infobox'><h1 class='loc-title'>" + locations[i].name + "</h1><img src='" + locations[i].picture_url + "' class='loc-img'/><div class='loc-des'>" + locations[i].description + "</div>" + "<a href='" + locations[i].link + "' target='_blank'><em>" + "En savoir plus" + "</em></a></div)"),
+                disableAutoPan: false,
+                maxWidth: 300,
+                pixelOffset: new google.maps.Size(-140, 0),
+                zIndex: null,
+                boxStyle: {
+                  background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
+                  opacity: 0.8,
+                  width: "300px"
+                },
+                closeBoxMargin: "12px 4px 2px 2px",
+                closeBoxURL: "http://img11.hostingpics.net/pics/5746171429104631buttonclose.png",
+                infoBoxClearance: new google.maps.Size(1, 1)
               });
-            })(marker, i);
+              infobox.open(map, marker);
+            });
+          })(marker, i);
         };
         markerCluster.clearMarkers();
       }

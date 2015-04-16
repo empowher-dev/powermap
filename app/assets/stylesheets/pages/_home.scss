@@ -45,6 +45,7 @@ pre {
   border-radius: 2px;
   display: table;
   text-align: center;
+  cursor: pointer;
   &:hover {
     color: #8C455F;
     background-color: white;
@@ -98,6 +99,7 @@ pre {
   float: right;
   margin-top: 2.5%;
   margin-right: 5%;
+  cursor: pointer;
 }
 
 .btn-form {

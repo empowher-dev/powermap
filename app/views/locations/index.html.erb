@@ -73,6 +73,7 @@
         #infobox {
           border:2px solid black;
           margin-top: 8px;
+          margin-right: 115px;
           background:#333;
           color:#FFFFFF;
           font-size:12px;
@@ -88,7 +89,7 @@
           color: white;
         }
         .loc-title {
-          font-size: 20px;
+          font-size: 16px;
           text-transform: uppercase;
         }
         .loc-des {
@@ -157,6 +158,8 @@
         });
 
         var locations = <%= raw @markers.to_json(except: :infowindow) %>
+        var infobox = new InfoBox({
+        });
 
         for (i = 0; i < locations.length; i++) {
           var marker = new google.maps.Marker({
@@ -167,18 +170,18 @@
 
           (function(marker, i) {
             google.maps.event.addListener(marker, 'click', function() {
-              infobox = new InfoBox({
+              infobox.setOptions({
                 content: ("<div id='infobox'><h1 class='loc-title'>" + locations[i].name + "</h1><img src='" + locations[i].picture_url + "' class='loc-img'/><div class='loc-des'>" + locations[i].description + "</div>" + "<a href='" + locations[i].link + "' target='_blank'><em>" + "En savoir plus" + "</em></a></div)"),
                 disableAutoPan: false,
-                maxWidth: 300,
+                maxWidth: 400,
                 pixelOffset: new google.maps.Size(-140, 0),
                 zIndex: null,
                 boxStyle: {
                   background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
                   opacity: 0.8,
-                  width: "300px"
+                  width: "400px"
                 },
-                closeBoxMargin: "20px 15px 15px 15px",
+                closeBoxMargin: "20px 130px 15px 15px",
                 closeBoxURL: "http://img11.hostingpics.net/pics/5746171429104631buttonclose.png",
                 infoBoxClearance: new google.maps.Size(1, 1)
               });

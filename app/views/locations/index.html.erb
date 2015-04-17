@@ -73,7 +73,6 @@
         #infobox {
           border:2px solid black;
           margin-top: 8px;
-          margin-right: 115px;
           background:#333;
           color:#FFFFFF;
           font-size:12px;
@@ -148,7 +147,8 @@
                 lat: 0,
                 lng: 20
             },
-            zoom: 3
+            zoom: 3,
+            scrollwheel: false
 
         };
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -173,15 +173,15 @@
               infobox.setOptions({
                 content: ("<div id='infobox'><h1 class='loc-title'>" + locations[i].name + "</h1><img src='" + locations[i].picture_url + "' class='loc-img'/><div class='loc-des'>" + locations[i].description + "</div>" + "<a href='" + locations[i].link + "' target='_blank'><em>" + "En savoir plus" + "</em></a></div)"),
                 disableAutoPan: false,
-                maxWidth: 400,
+                maxWidth: 550,
                 pixelOffset: new google.maps.Size(-140, 0),
                 zIndex: null,
                 boxStyle: {
                   background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
                   opacity: 0.8,
-                  width: "400px"
+                  width: "550px"
                 },
-                closeBoxMargin: "20px 130px 15px 15px",
+                closeBoxMargin: "20px 15px 15px 15px",
                 closeBoxURL: "http://img11.hostingpics.net/pics/5746171429104631buttonclose.png",
                 infoBoxClearance: new google.maps.Size(1, 1)
               });
@@ -190,7 +190,7 @@
           })(marker, i);
         };
         markerCluster.clearMarkers();
-      }
+      };
 
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>

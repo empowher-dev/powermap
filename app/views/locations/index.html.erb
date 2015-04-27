@@ -83,6 +83,7 @@
           text-shadow:0 -1px #000000;
           -webkit-box-shadow: 0 0 8px #000;
           box-shadow: 0 0 8px #000;
+          height: 300px;
         }
         #infobox > a {
           color: white;
@@ -92,6 +93,9 @@
           text-transform: uppercase;
         }
         .loc-des {
+          position: relative;
+          float: right;
+          width: 45%;
           padding:5px;
           font-size: 14px;
           white-space: pre-wrap;
@@ -100,12 +104,14 @@
           white-space: -o-pre-wrap;
           word-wrap: break-word;
           text-align: justify;
+          height: 250px;
+          overflow: scroll;
         }
         .loc-img {
-          max-width: 250px;
           position: relative;
+          float: left;
           margin: auto;
-          width: 70%;
+          width: 45%;
         }
     </style>
     <div id="map-canvas"></div>
@@ -171,7 +177,7 @@
           (function(marker, i) {
             google.maps.event.addListener(marker, 'click', function() {
               infobox.setOptions({
-                content: ("<div id='infobox'><h1 class='loc-title'>" + locations[i].name + "</h1><img src='" + locations[i].picture_url + "' class='loc-img'/><div class='loc-des'>" + locations[i].description + "</div>" + "<a href='" + locations[i].link + "' target='_blank'><em>" + "En savoir plus" + "</em></a></div)"),
+                content: ("<div id='infobox'><h1 class='loc-title'>" + locations[i].name + "</h1><img src='" + locations[i].picture_url + "' class='loc-img'/><div class='loc-des'><p>" + locations[i].description + "</p><a href='" + locations[i].link + "' target='_blank'><em>En savoir plus</em></a></div></div)"),
                 disableAutoPan: false,
                 maxWidth: 550,
                 pixelOffset: new google.maps.Size(-140, 0),
